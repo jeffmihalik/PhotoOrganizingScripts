@@ -1,11 +1,17 @@
-$dest_folder = "D:\Photos\test output\2017folder\"
-$source_folder = "D:\Photos\test"
+$year = Read-Host -Prompt "Please enter the year to retrieve"
+$fileType = Read-Host -Prompt "Please enter the desired file extension with no period (e.g. mov)"
+$attributeName = Read-Host -Prompt "Please enter the attribute name"
 
-[DateTime]$startTime="2017-1-1 00:00:00"
-[DateTime]$endTime="2017-12-31 23:59:59"
-$attrName = "media created"
-$fldPath = "D:\Photos\test"
-$flExt = ".mov";
+$dest_folder = "D:\Photos\$($year) - $($fileType) files\"
+$source_folder = "D:\Photos\Jeff iPhone dump 2-19-21\Camera Roll\"
+
+[DateTime]$startTime="$($year)-1-1 00:00:00"
+[DateTime]$endTime="$($year)-12-31 23:59:59"
+$attrName = "date taken"
+$fldPath = $source_folder
+$flExt = ".$($fileType)"
+
+New-Item -ItemType Directory -Force -Path $dest_folder
 
 (Get-ChildItem -Path "$fldPath\*" -Include "*$flExt").FullName | foreach { 
 
