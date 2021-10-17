@@ -1,13 +1,13 @@
+Write-Output "***Video Mover (sort videos by Media Created)***"
 $year = Read-Host -Prompt "Please enter the year to retrieve"
 $fileType = Read-Host -Prompt "Please enter the desired file extension with no period (e.g. mov)"
-$attributeName = Read-Host -Prompt "Please enter the attribute name"
 
 $dest_folder = "D:\Photos\$($year) - $($fileType) files\"
 $source_folder = "D:\Photos\Jeff iPhone dump 2-19-21\Camera Roll\"
 
 [DateTime]$startTime="$($year)-1-1 00:00:00"
 [DateTime]$endTime="$($year)-12-31 23:59:59"
-$attrName = "date taken"
+$attrName = "media created"
 $fldPath = $source_folder
 $flExt = ".$($fileType)"
 
